@@ -4,7 +4,7 @@ const ProductCard = () => {
   return (
     <div>
       
-    </div>
+    </div> 
   )
 }
 
