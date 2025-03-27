@@ -2,21 +2,30 @@ import cartIcon from "/cart-icon.svg";
 import pizzlogo from "/pizz-logo.png";
 import searchIcon from "/search.svg";
 import hamburgerMenu from "/menu-burger.svg";
+import cross from "/cross.svg"
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleNavbar = (e) =>{
+    e.target.src = isOpen? hamburgerMenu: cross
+    setIsOpen(!isOpen)
+  }
+
   return (
     <div className="p-4 flex items-center">
        <img className="mr-auto" width={100} src={pizzlogo} alt="Pizz peanott logo" />
-       <nav className="flex justify-between basis-[60%]">
-        <ul className="flex items-center gap-4">
-          {["Catalog", "Service", "About Us", "Contact Us"].map( (navItem, index) => <li key={index}>{navItem}</li>)}
+       <nav className={`${isOpen ? 'translate-x-0': 'translate-x-[100%]'} md:translate-x-0 flex md:justify-between flex-col md:flex-row basis-[65%] absolute right-0 md:static inset-y-0 w-1/2 bg-white shadow-2xl md:bg-transparent md:shadow-none py-21 px-4 md:p-0 transition-transform`}>
+        <ul className="flex items-center gap-8 flex-col md:flex-row pb-8 mb-4 border-b md:border-none md:m-0 md:p-0 ">
+          {["Catalog", "Service", "About Us", "Contact Us"].map( (navItem, index) => <li className="cursor-pointer hover:font-bold transition-all " key={index}>{navItem}</li>)}
         </ul>
-        <div className="flex gap-4">
-          <button className="flex gap-2"><span>Search</span> <img width={15} src={searchIcon} alt="search icon" /></button>
-          <button className="flex gap-2"><span>Cart</span> <img className="" width={15} src={cartIcon} alt="cart icon" /></button>
+        <div className="flex items-center gap-8 justify-center">
+          <button className="flex gap-2 cursor-pointer"><img width={25} src={searchIcon} alt="search icon" /></button>
+          <button className="flex gap-2 cursor-pointer"><img className="" width={25} src={cartIcon} alt="cart icon" /></button>
         </div>
        </nav>
-       <img className="hidden" width={100} src={hamburgerMenu} alt="hamburger menu" />
+       <img onClick={(e) => handleNavbar(e)} className="md:hidden cursor-pointer z-50" width={25} src={hamburgerMenu} alt="hamburger menu" />
     </div>
   )
 }
