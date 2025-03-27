@@ -2,8 +2,21 @@
 
 :root{
     --yellow: #fcb137;
-    --red: #be1722;
+    --red: #da0816;
     --blue: #88bfe0;
     --darkblue: #19242b;
     --bg: #ece9df;
+    --font: "Lexend", sans-serif;
+}
+
+.shadowbox{
+    filter: drop-shadow( 0px 10px 20px rgba(48, 47, 47, 0.5));
+}
+
+.cliptext{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.long-animate{
+    transition-duration: 500ms;
 }
