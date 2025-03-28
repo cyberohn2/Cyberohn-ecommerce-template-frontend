@@ -4,7 +4,6 @@ const ContactUs = () => {
   return (
     <div>
       
-      <ContactForm />
     </div>
   )
 }

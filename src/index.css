@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 :root{
-    --yellow: #fcb137;
+    --yellow: #f39703;
     --red: #da0816;
-    --blue: #88bfe0;
+    --blue: #36B864;
+    --light-blue: #a00505;
     --darkblue: #19242b;
     --bg: #ece9df;
     --font: "Lexend", sans-serif;

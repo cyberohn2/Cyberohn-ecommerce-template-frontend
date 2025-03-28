@@ -52,7 +52,7 @@ const Hero = () => {
 
   }, [])
   return (
-    <div className="bg-[var(--red)] sm:p-8 p-4  text-white rounded-2xl relative">
+    <div className="bg-[var(--red)] sm:p-8 p-4  text-white rounded-4xl relative">
       <div className="pb-40">
         <div className="">
           <h1 style={{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'}} id="hero-text" className="font-bold xl:text-[4.5rem] lg:text-[3.5rem] text-[2rem] leading-none">Explore a World of Peanut Delights</h1>
