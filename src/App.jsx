@@ -14,7 +14,7 @@ import ShippingDetails from "./Pages/ShippingDetails"
 function App() {
 
   return (
-    <>
+    <div className="bg-[var(--bg)] font-(family-name:--font) relative overflow-x-hidden">
       <Router>
         <Header />
         <Routes >
@@ -30,7 +30,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-    </>
+    </div>
   )
 }
 
