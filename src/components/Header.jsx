@@ -1,12 +1,20 @@
 import cartIcon from "/cart-icon.svg";
-import pizzlogo from "/pizz-logo.png";
+import pizzlogo from "/pizz-logo.webp";
 import searchIcon from "/search.svg";
 import hamburgerMenu from "/menu-burger.svg";
 import cross from "/cross.svg"
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../Contexts/CartContext";
+import CartSummary from "./CartSummary";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [cartVisibility, setCartVisibility] = useState(false)
+    const { cart } = useContext(CartContext);
+
+  const handleCartVisibility = () =>{
+    setCartVisibility(!cartVisibility)
+  }
 
   const handleNavbar = (e) =>{
     e.target.src = isOpen? hamburgerMenu: cross
@@ -20,12 +28,13 @@ const Header = () => {
         <ul className="flex items-center gap-4 flex-col md:flex-row pb-8 mb-4 border-b md:border-none md:m-0 md:p-0 ">
           {["Catalog", "Service", "Reviews", "About Us"].map( (navItem, index) => <li className="w-[93px] cursor-pointer hover:font-bold transition-all long-animate" key={index}>{navItem}</li>)}
         </ul>
-        <div className="flex items-center gap-8 justify-center">
-          <button className="flex gap-2 cursor-pointer"><img width={25} src={searchIcon} alt="search icon" /></button>
-          <button className="flex gap-2 cursor-pointer"><img className="" width={25} src={cartIcon} alt="cart icon" /></button>
-        </div>
+
        </nav>
-       <img onClick={(e) => handleNavbar(e)} className="md:hidden cursor-pointer z-50" width={25} src={hamburgerMenu} alt="hamburger menu" />
+        <div className="z-50 flex items-center gap-8">
+          <button onClick={handleCartVisibility} className="flex gap-2 cursor-pointer relative"> {cart && <span className="absolute -top-3 -right-3 font-bold text-[var(--yellow) bg-[var(--yellow)] rounded-lg w-[25px] h-[25px] aspect-square">{cart.length}</span>} <img className="" width={25} src={cartIcon} alt="cart icon" /></button>
+          <img onClick={(e) => handleNavbar(e)} className="md:hidden cursor-pointer" width={25} src={hamburgerMenu} alt="hamburger menu" />
+        </div>
+       {cartVisibility && <CartSummary />}
     </header>
   )
 }

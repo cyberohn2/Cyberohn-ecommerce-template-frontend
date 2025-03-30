@@ -9,27 +9,31 @@ import Services from "./Pages/Services"
 import Checkout from "./Pages/Checkout"
 import OrderSummary from "./Pages/OrderSummary"
 import ProductPage from "./Pages/ProductPage"
-import ShippingDetails from "./Pages/ShippingDetails"
+import ShippingDetails from "./Pages/ShippingDetails";
+import { CartProvider } from "./Contexts/CartContext"
 
 function App() {
 
   return (
     <div className="bg-[var(--bg)] font-(family-name:--font) relative overflow-x-hidden">
-      <Router>
-        <Header />
-        <Routes >
-          <Route exact path="/" element={<StoreFront />}></Route>
-          <Route exact path="/about-us" element={<AboutUs />}></Route>
-          <Route exact path="/contact-us" element={<ContactUs />}></Route>
-          <Route exact path="/catalog" element={<Catalog />}></Route>
-          <Route exact path="/services" element={<Services />}></Route>
-          <Route exact path="/checkout" element={<Checkout />}></Route>
-          <Route exact path="/order-summary" element={<OrderSummary />}></Route>
-          <Route exact path="/product-page" element={<ProductPage />}></Route>
-          <Route exact path="/shipping-details" element={<ShippingDetails />}></Route>
-        </Routes>
-        <Footer />
-      </Router>
+      <CartProvider>
+        <Router>
+          <Header />
+          <Routes >
+            <Route exact path="/" element={<StoreFront />}></Route>
+            <Route exact path="/about-us" element={<AboutUs />}></Route>
+            <Route exact path="/contact-us" element={<ContactUs />}></Route>
+            <Route exact path="/catalog" element={<Catalog />}></Route>
+            <Route exact path="/services" element={<Services />}></Route>
+            <Route exact path="/checkout" element={<Checkout />}></Route>
+            <Route exact path="/order-summary" element={<OrderSummary />}></Route>
+            <Route exact path="/product-page" element={<ProductPage />}></Route>
+            <Route exact path="/shipping-details" element={<ShippingDetails />}></Route>
+          </Routes>
+          <Footer />
+        </Router>
+      </CartProvider>
+
     </div>
   )
 }

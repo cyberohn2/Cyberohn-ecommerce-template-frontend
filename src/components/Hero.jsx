@@ -58,7 +58,7 @@ const Hero = () => {
           <h1 style={{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'}} id="hero-text" className="font-bold xl:text-[4.5rem] lg:text-[3.5rem] text-[2rem] leading-none">Explore a World of Peanut Delights</h1>
           <h2 className=" lg:w-[30%] w-[50%] text-[#e7e7e7]">Delicious, Nutty, Nourishing & Irresistible</h2>
         </div>
-        <img width={10} className="absolute top-[3rem] sm:right-[30%] right-[20%] long-animate 2xl:w-[10%] w-[15%] hero-image shadowbox translate-x-[5rem] cursor-pointer transition-transform duration-300" src={heroImg} alt="pizz peanott drink" />
+        <img width={10} className="absolute top-[3rem] sm:right-[30%] right-[20%] long-animate 2xl:w-[10%] lg:w-[18%] w-[22%] hero-image shadowbox translate-x-[5rem] cursor-pointer transition-transform duration-300" src={heroImg} alt="pizz peanott drink" />
       </div>
       <div className="flex justify-between">
         <p className="w-52 text-[#cac5d8] font-light">Savor Big on Your Favourite Nutty Treats</p>
