@@ -6,7 +6,7 @@ const CartSummary = () => {
 const { cart, setCart } = useContext(CartContext);
 
   return (
-    <div class="w-[40%] md:w-[300px] p-3 shadow-md rounded-lg absolute md:top-[90px] md:right-[90px] top-14 right-10 bg-white z-20">
+    <div class="w-[40%] md:w-[300px] p-3 shadow-md rounded-lg absolute md:top-[90px] md:right-[90px] top-14 right-10 bg-white z-50">
         <p className='text-left border-b pb-2 font-bold'>Cart</p>
         {cart.map( (item, index) => <div key={index} id="cart-details" className='flex items-center justify-between'>
             <div className='flex items-center gap-2.5'>
