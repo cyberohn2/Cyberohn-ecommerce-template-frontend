@@ -4,7 +4,7 @@ import minusIcon from "/icon-minus.svg";
 import { CartContext } from "../Contexts/CartContext";
 import { useContext, useEffect, useCallback } from "react";
 
-const ProductList = () => {
+const ProductList = ({title}) => {
   const { cart, setCart } = useContext(CartContext);
 
   // Function to update localStorage whenever the cart changes
@@ -76,16 +76,19 @@ const ProductList = () => {
 
   return (
     <div className="bg-white sm:p-8 p-4 rounded-4xl justify-between mt-2">
-      <h1 className="xl:text-[4.5rem] lg:text-[3.5rem] text-[2rem] leading-none font-bold mb-4">
-        Our Products
-      </h1>
+      <div className="mb-4">
+        <h1 className="xl:text-[4.5rem] lg:text-[3.5rem] text-[2rem] leading-none font-bold ">
+          {title}
+        </h1>
+        <p className="text-gray-400">Savor Big on Your Favourite Nutty Treats</p>
+      </div>
       <div>
         {products.map((product, index) => {
           const cartProduct = cart.find((item) => item.name === product.name);
           const amount = cartProduct ? cartProduct.amount : 0;
 
           return (
-            <div key={index} className="flex items-center justify-between mb-4">
+            <div key={index} className="flex items-center justify-between mb-4 border-b border-gray-300">
               <div className="flex items-start gap-3 mb-3">
                 <span className="border border-white rounded-2xl p-2 w-[50px] h-[50px] flex items-center justify-center bg-[#ff1020] hover:-translate-y-2 hover:shadow-xl cursor-pointer transition-all long-animate">
                   <img width={10} src={product.img} alt="" />

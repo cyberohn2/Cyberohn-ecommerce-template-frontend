@@ -21,3 +21,7 @@
 .long-animate{
     transition-duration: 500ms;
 }
+
+.active{
+    color: var(--yellow);
+}
