@@ -2,44 +2,56 @@ import productImage from "/hero-img.webp";
 import plusIcon from "/icon-plus.svg";
 import minusIcon from "/icon-minus.svg";
 import { CartContext } from "../Contexts/CartContext";
-import { useContext } from "react";
+import { useContext, useEffect, useCallback } from "react";
 
 const ProductList = () => {
   const { cart, setCart } = useContext(CartContext);
 
-  const handleCart = (action, product) => {
-    const existingProduct = cart.find((item) => item.name === product.name);
+  // Function to update localStorage whenever the cart changes
+  const updateLocalStorage = (updatedCart) => {
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
 
-    if (action === "increment") {
-      if (existingProduct) {
-        // Update the amount of the existing product
-        setCart(
-          cart.map((item) =>
+  const handleCart = (action, product) => {
+      const existingProduct = cart.find((item) => item.name === product.name);
+      let updatedCart;
+
+      if (action === "increment") {
+        if (existingProduct) {
+          // Update the amount of the existing product
+          updatedCart = cart.map((item) =>
             item.name === product.name
               ? { ...item, amount: item.amount + 1, total: (item.amount + 1) * item.price }
               : item
-          )
-        );
-      } else {
-        // Add the product to the cart with an initial amount of 1
-        setCart([...cart, { ...product, amount: 1, total: product.price }]);
-      }
-    } else if (action === "decrement") {
-      if (existingProduct && existingProduct.amount > 1) {
-        // Decrease the amount of the existing product
-        setCart(
-          cart.map((item) =>
+          );
+        } else {
+          // Add the product to the cart with an initial amount of 1
+          updatedCart = [...cart, { ...product, amount: 1, total: product.price }];
+        }
+      } else if (action === "decrement") {
+        if (existingProduct && existingProduct.amount > 1) {
+          // Decrease the amount of the existing product
+          updatedCart = cart.map((item) =>
             item.name === product.name
               ? { ...item, amount: item.amount - 1, total: (item.amount - 1) * item.price }
               : item
-          )
-        );
-      } else {
-        // Remove the product from the cart if the amount is 1
-        setCart(cart.filter((item) => item.name !== product.name));
+          );
+        } else {
+          // Remove the product from the cart if the amount is 1
+          updatedCart = cart.filter((item) => item.name !== product.name);
+        }
+      }
+
+      // Only update the cart state and localStorage if the cart has changed
+      if (JSON.stringify(cart) !== JSON.stringify(updatedCart)) {
+        setCart(updatedCart);
+        updateLocalStorage(updatedCart);
       }
     }
-  };
+  ;
+
+  // Load cart from localStorage when the component mounts
+
 
   const products = [
     {
