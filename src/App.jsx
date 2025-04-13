@@ -5,12 +5,12 @@ import StoreFront from "./Pages/StoreFront"
 import AboutUs from "./Pages/AboutUs"
 import ContactUs from "./Pages/ContactUs"
 import Catalog from "./Pages/Catalog"
-import Services from "./Pages/Services"
 import Checkout from "./Pages/Checkout"
 import OrderSummary from "./Pages/OrderSummary"
 import ProductPage from "./Pages/ProductPage"
 import ShippingDetails from "./Pages/ShippingDetails";
 import { CartProvider } from "./Contexts/CartContext"
+import Reviews from "./Pages/Reviews"
 
 function App() {
 
@@ -24,7 +24,7 @@ function App() {
             <Route exact path="/about-us" element={<AboutUs />}></Route>
             <Route exact path="/contact-us" element={<ContactUs />}></Route>
             <Route exact path="/catalog" element={<Catalog />}></Route>
-            <Route exact path="/services" element={<Services />}></Route>
+            <Route exact path="/reviews" element={<Reviews />}></Route>
             <Route exact path="/checkout" element={<Checkout />}></Route>
             <Route exact path="/order-summary" element={<OrderSummary />}></Route>
             <Route exact path="/product-page" element={<ProductPage />}></Route>
