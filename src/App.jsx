@@ -3,14 +3,12 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import StoreFront from "./Pages/StoreFront"
 import AboutUs from "./Pages/AboutUs"
-import ContactUs from "./Pages/ContactUs"
 import Catalog from "./Pages/Catalog"
-import Checkout from "./Pages/Checkout"
 import OrderSummary from "./Pages/OrderSummary"
-import ProductPage from "./Pages/ProductPage"
-import ShippingDetails from "./Pages/ShippingDetails";
 import { CartProvider } from "./Contexts/CartContext"
 import Reviews from "./Pages/Reviews"
+import ScrollToTop from "./components/ScrollToTop"
+import CheckoutPage from "./Pages/CheckoutPage"
 
 function App() {
 
@@ -19,16 +17,14 @@ function App() {
       <CartProvider>
         <Router>
           <Header />
+          <ScrollToTop />
           <Routes >
             <Route exact path="/" element={<StoreFront />}></Route>
             <Route exact path="/about-us" element={<AboutUs />}></Route>
-            <Route exact path="/contact-us" element={<ContactUs />}></Route>
             <Route exact path="/catalog" element={<Catalog />}></Route>
             <Route exact path="/reviews" element={<Reviews />}></Route>
-            <Route exact path="/checkout" element={<Checkout />}></Route>
             <Route exact path="/order-summary" element={<OrderSummary />}></Route>
-            <Route exact path="/product-page" element={<ProductPage />}></Route>
-            <Route exact path="/shipping-details" element={<ShippingDetails />}></Route>
+            <Route exact path="/checkout" element={<CheckoutPage />}></Route>
           </Routes>
           <Footer />
         </Router>

@@ -74,17 +74,17 @@ const CustomOrder = () => {
             <h2 className="text-2xl text-white xl:text-[3.5rem] lg:text-[2.5rem] text-[1.5rem] leading-none mb-4">Custom Order</h2>
             <p className="mb-2 text-sm text-[#ece9e9]">Savor your flavours, customize your cravings</p>
             {/* Form fields */}
-            <div className=" flex flex-col gap-2 text-[#ecdfdf]">
+            <div className=" flex flex-col gap-2 ">
                 {/* Name field */}
                 <div className="">
-                    <label className="mr-[9px] block" htmlFor="name">Name</label>
-                    <input className="outline-none w-full  p-2 rounded-4xl border border-[#f0ecec] shadow-lg" name="name" id="name" type="text" value={formData.name} onChange={handleChange} />
+                    <label className="mr-[9px] block font-bold" htmlFor="name">Name</label>
+                    <input className="outline-none w-full  p-2 rounded-4xl border border-[#f0ecec] " name="name" id="name" type="text" value={formData.name} onChange={handleChange} />
                     {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
                 </div>
 
                 <div >
-                    <label className="mr-[9px] block " htmlFor="product">Product</label>
-                    <select className="outline-none w-full  p-2 rounded-4xl border border-[#f0ecec] shadow-lg"  name="product" id="product">
+                    <label className="mr-[9px] block font-bold" htmlFor="product">Product</label>
+                    <select className="outline-none w-full  p-2 rounded-4xl border border-[#f0ecec] "  name="product" id="product">
                       <option value="">Choose a Product</option>
                       {['Peanott Milk', 'Peanott Butter', 'Coated Peanut'].map( (item, index) => <option key={index} value={item}>{item}</option>)}
                     </select>
@@ -92,7 +92,7 @@ const CustomOrder = () => {
                 </div>
 
                 <div >
-                    <label className="mr-[9px] block " htmlFor="product">Amount</label>
+                    <label className="mr-[9px] block font-bold" htmlFor="product">Product Quantity</label>
                     <div className="flex items-center gap-2 border border-[#f0ecec] rounded-4xl p-2">
                         <p className="font-semibold ">₦500 each</p>
                         <div className="flex items-center rounded-lg gap-4 bg-[#f7f8fd] p-2 w-fit">
@@ -103,19 +103,11 @@ const CustomOrder = () => {
                     </div>
                     {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
                 </div>
-                <div >
-                    <label className="mr-[9px] block " htmlFor="product">Product</label>
-                    <select className="outline-none w-full  p-2 rounded-4xl border border-[#f0ecec] shadow-lg"  name="product" id="product">
-                      <option value="">Choose a Product</option>
-                      {['Peanott Milk', 'Peanott Butter', 'Coated Peanut'].map( (item, index) => <option key={index} value={item}>{item}</option>)}
-                    </select>
-                    {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
-                </div>
 
                 {/* Message field */}
                 <div >
-                    <label className="mr-[9px] block " htmlFor="message">Order Instructions</label>
-                    <textarea className="outline-none w-full  p-2 rounded-4xl border border-[#f0ecec] shadow-lg" cols="30" rows="2" name="message" id="message" value={formData.message} onChange={handleChange} ></textarea>
+                    <label className="mr-[9px] block font-bold" htmlFor="message">Order Instructions</label>
+                    <textarea className="outline-none w-full  p-2 rounded-4xl border border-[#f0ecec]" cols="30" rows="2" name="message" id="message" value={formData.message} onChange={handleChange} ></textarea>
                     {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
                 </div>
             </div>

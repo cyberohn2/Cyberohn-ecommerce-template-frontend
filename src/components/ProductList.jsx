@@ -75,7 +75,7 @@ const ProductList = ({title}) => {
   ];
 
   return (
-    <div className="bg-white sm:p-8 p-4 rounded-4xl justify-between mt-2">
+    <div className="bg-white sm:p-8 p-4 rounded-4xl mt-2">
       <div className="mb-4">
         <h1 className="xl:text-[4.5rem] lg:text-[3.5rem] text-[2rem] leading-none font-bold ">
           {title}
