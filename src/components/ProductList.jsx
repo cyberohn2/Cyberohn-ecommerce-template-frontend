@@ -1,11 +1,16 @@
 import productImage from "/hero-img.webp";
+import coatedPeanott from "/coated-peanott.webp";
+import peanottButter from "/peanott-butter.webp";
 import plusIcon from "/icon-plus.svg";
 import minusIcon from "/icon-minus.svg";
 import { CartContext } from "../Contexts/CartContext";
-import { useContext, useEffect, useCallback } from "react";
+import { useContext} from "react";
+import { useLocation } from "react-router-dom";
 
 const ProductList = ({title}) => {
   const { cart, setCart } = useContext(CartContext);
+  const location = useLocation();
+
 
   // Function to update localStorage whenever the cart changes
   const updateLocalStorage = (updatedCart) => {
@@ -57,22 +62,42 @@ const ProductList = ({title}) => {
     {
       img: productImage,
       name: "Peanott Milk",
-      desc: "Healthy and nourishing groundnut milk",
+      desc: "Healthy and nourishing groundnut milk.",
       price: 500,
     },
     {
-      img: productImage,
+      img: peanottButter,
       name: "Peanott Butter",
-      desc: "Creamy and delicious peanut butter",
-      price: 700,
+      desc: "Creamy and delicious peanut butter.",
+      price: 1600,
     },
     {
-      img: productImage,
-      name: "Peanott Cookies",
-      desc: "Crunchy and tasty peanut cookies",
-      price: 300,
+      img: coatedPeanott,
+      name: "Coated Peanott(25CL)",
+      desc: "Crunchy and tasty peanut cookies.",
+      price: 980,
+    },
+    {
+      img: coatedPeanott,
+      name: "Coated Peanott(50CL)",
+      desc: "Crunchy and tasty peanut cookies.",
+      price: 1800,
+    },
+    {
+      img: coatedPeanott,
+      name: "Coated Peanott(Plate Package)",
+      desc: "Crunchy and tasty peanut cookies.",
+      price: 400,
+    },
+    {
+      img: coatedPeanott,
+      name: "Peanott Doughnut",
+      desc: "Soft delicious doughnut made with peanut butter filling.",
+      price: 2500,
     },
   ];
+
+  let displayProducts = location.pathname !== "/" ? products : products.slice(0,3);
 
   return (
     <div className="bg-white sm:p-8 p-4 rounded-4xl mt-2">
@@ -83,7 +108,7 @@ const ProductList = ({title}) => {
         <p className="text-gray-400">Savor Big on Your Favourite Nutty Treats</p>
       </div>
       <div>
-        {products.map((product, index) => {
+        {displayProducts.map((product, index) => {
           const cartProduct = cart.find((item) => item.name === product.name);
           const amount = cartProduct ? cartProduct.amount : 0;
 
