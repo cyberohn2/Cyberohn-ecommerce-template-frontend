@@ -3,7 +3,7 @@ import { CartContext } from '../Contexts/CartContext';
 import deleteIcon from "/icon-delete.svg";
 import { Link } from 'react-router-dom';
 
-const CartSummary = () => {
+const CartSummary = (cartVisibility) => {
 const { cart, setCart } = useContext(CartContext);
 const totalPrice = cart.reduce((total, item) => total + item.price * item.amount, 0);
 
@@ -29,7 +29,7 @@ const deleteItem = (e) =>{
         </div>)}
 
         {cart.length > 0 && <p className='text-right'>Total: ₦{totalPrice} </p>}
-        {cart.length > 0 && <button className='rounded-sm p-2.5 bg-[var(--yellow)] text-white text-sm w-full mt-3.5 cursor-pointer' id="checkout-btn"><Link to='/order-summary'>Checkout</Link></button>}
+        {cart.length > 0 && <button onClick={cartVisibility} className='rounded-sm p-2.5 bg-[var(--yellow)] text-white text-sm w-full mt-3.5 cursor-pointer' id="checkout-btn"><Link to='/order-summary'>Checkout</Link></button>}
         {cart.length == 0 && <p className='mx-auto text-center' id="empty-message">Your cart is empty</p>}
     </div>
   )

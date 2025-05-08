@@ -1,6 +1,7 @@
 import productImage from "/hero-img.webp";
 import coatedPeanott from "/coated-peanott.webp";
 import peanottButter from "/peanott-butter.webp";
+import peanottDough from "/peanott-doughnut.webp"
 import { createContext, useEffect, useState } from 'react';
 
 // Create a Cart Context
@@ -41,7 +42,7 @@ export const CartProvider = ({ children }) => {
           price: 400,
         },
         {
-          img: coatedPeanott,
+          img: peanottDough,
           name: "Peanott Doughnut",
           desc: "Soft delicious doughnut made with peanut butter filling.",
           price: 2500,

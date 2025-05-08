@@ -34,7 +34,7 @@ const Header = () => {
           <button onClick={handleCartVisibility} className="flex gap-2 cursor-pointer relative"> {cart && <span className="absolute -top-3 -right-3 font-bold text-[var(--yellow) bg-[var(--yellow)] rounded-lg w-[25px] h-[25px] aspect-square">{cart.length}</span>} <img className="" width={25} src={cartIcon} alt="cart icon" /></button>
           <img onClick={(e) => handleNavbar(e)} className="md:hidden cursor-pointer" width={25} src={isOpen? cross: hamburgerMenu} alt="hamburger menu" />
         </div>
-       {cartVisibility && <CartSummary />}
+       {cartVisibility && <CartSummary cartVisibility={handleCartVisibility} />}
     </header>
   )
 }
