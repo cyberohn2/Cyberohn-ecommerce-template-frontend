@@ -1,6 +1,3 @@
-import productImage from "/hero-img.webp";
-import coatedPeanott from "/coated-peanott.webp";
-import peanottButter from "/peanott-butter.webp";
 import plusIcon from "/icon-plus.svg";
 import minusIcon from "/icon-minus.svg";
 import { CartContext } from "../Contexts/CartContext";
@@ -8,7 +5,7 @@ import { useContext} from "react";
 import { useLocation } from "react-router-dom";
 
 const ProductList = ({title}) => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, products } = useContext(CartContext);
   const location = useLocation();
 
 
@@ -55,47 +52,6 @@ const ProductList = ({title}) => {
     }
   ;
 
-  // Load cart from localStorage when the component mounts
-
-
-  const products = [
-    {
-      img: productImage,
-      name: "Peanott Milk",
-      desc: "Healthy and nourishing groundnut milk.",
-      price: 500,
-    },
-    {
-      img: peanottButter,
-      name: "Peanott Butter",
-      desc: "Creamy and delicious peanut butter.",
-      price: 1600,
-    },
-    {
-      img: coatedPeanott,
-      name: "Coated Peanott(25CL)",
-      desc: "Crunchy and tasty peanut cookies.",
-      price: 980,
-    },
-    {
-      img: coatedPeanott,
-      name: "Coated Peanott(50CL)",
-      desc: "Crunchy and tasty peanut cookies.",
-      price: 1800,
-    },
-    {
-      img: coatedPeanott,
-      name: "Coated Peanott(Plate Package)",
-      desc: "Crunchy and tasty peanut cookies.",
-      price: 400,
-    },
-    {
-      img: coatedPeanott,
-      name: "Peanott Doughnut",
-      desc: "Soft delicious doughnut made with peanut butter filling.",
-      price: 2500,
-    },
-  ];
 
   let displayProducts = location.pathname !== "/" ? products : products.slice(0,3);
 

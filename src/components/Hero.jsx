@@ -56,9 +56,8 @@ const Hero = () => {
 
   }, [])
 
-  const handleHeroImgChange = (e) =>{
-    let position = e.target.getAttribute("data-pos")
-
+  const handleHeroImgChange = (position) =>{
+  
     switch (position) {
       case "first":
         setCurrentHeroImg(heroImg1)
@@ -91,9 +90,9 @@ const Hero = () => {
       <div className="flex justify-between">
         <p className="w-52 text-[#cac5d8] font-light">Savor Big on Your Favourite Nutty Treats</p>
         <div className="flex items-center gap-2 z-30">
-          <span onClick={ (e) => {handleHeroImgChange(e)}} data-pos='first' className="border border-white rounded-2xl p-2 w-[50px] h-[50px] flex items-center justify-center cursor-pointer bg-[var(--red)] hover:-translate-y-2 hover:shadow transition-all long-animate"><img width={10} src={heroImg1} alt="" /></span>
-          <span onClick={ (e) => {handleHeroImgChange(e)}} data-pos='second' className="border border-white rounded-2xl p-2 w-[50px] h-[50px] flex items-center justify-center bg-[#ff1020] hover:-translate-y-2 hover:shadow cursor-pointer transition-all long-animate"><img width={30} src={heroImg2} alt="" /></span>
-          <span onClick={ (e) => {handleHeroImgChange(e)}} data-pos='third' className="border border-white rounded-2xl p-2 w-[50px] h-[50px] flex items-center justify-center bg-[#ff1020] hover:-translate-y-2 hover:shadow-xl cursor-pointer transition-all long-animate"><img width={10} src={heroImg3} alt="" /></span>
+          <span onClick={ () => {handleHeroImgChange('first')}} className="border border-white rounded-2xl p-2 w-[50px] h-[50px] flex items-center justify-center cursor-pointer bg-[var(--red)] hover:-translate-y-2 hover:shadow transition-all long-animate"><img width={10} src={heroImg1} alt="" /></span>
+          <span onClick={ () => {handleHeroImgChange('second')}} className="border border-white rounded-2xl p-2 w-[50px] h-[50px] flex items-center justify-center bg-[#ff1020] hover:-translate-y-2 hover:shadow cursor-pointer transition-all long-animate"><img width={30} src={heroImg2} alt="" /></span>
+          <span onClick={ () => {handleHeroImgChange("third")}} className="border border-white rounded-2xl p-2 w-[50px] h-[50px] flex items-center justify-center bg-[#ff1020] hover:-translate-y-2 hover:shadow-xl cursor-pointer transition-all long-animate"><img width={10} src={heroImg3} alt="" /></span>
         </div>
       </div>
     </div> 
